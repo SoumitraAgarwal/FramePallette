@@ -1,5 +1,5 @@
+from collections import Counter
 import numpy as np
-from scipy import stats
 import cv2
 import os
 
@@ -19,9 +19,9 @@ for file in files:
 		if(iterator%100 == 0):
 	   		if(frame is None):
 	   			break
-			mode_color = [stats.mode(frame[:, :, i]) for i in range(frame.shape[-1])]
-			mode_color = [int(x) for x in mode]
-			writer.append(average_color)
+			mode_color = [Counter(frame[:, :, i].ravel().tolist()).most_common(1) for i in range(frame.shape[-1])]
+			mode_color = [x[0][0] for x in mode_color]
+			writer.append(mode_color)
 
 		if cv2.waitKey(1) & 0xFF == ord('q'):
 			break
