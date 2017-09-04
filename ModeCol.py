@@ -4,6 +4,7 @@ import cv2
 import os
 
 files 	= os.listdir("Data/")
+files.sort()
 pace 	= []
 writer 	= []
 for file in files:

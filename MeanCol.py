@@ -3,7 +3,7 @@ import cv2
 import os
 
 files 	= os.listdir("Data/")
-print(files)
+files.sort()
 pace 	= []
 writer 	= []
 for file in files:
