@@ -27,6 +27,9 @@ for file in files:
 		if cv2.waitKey(1) & 0xFF == ord('q'):
 			break
 
+		if(iterator%5000==0):
+			print(iterator)
+
 	# When everything done, release the capture
 	cap.release()
 	cv2.destroyAllWindows()
