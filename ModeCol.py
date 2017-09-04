@@ -4,7 +4,6 @@ import cv2
 import os
 
 files 	= os.listdir("Data/")
-print(files)
 pace 	= []
 writer 	= []
 for file in files:
@@ -20,8 +19,8 @@ for file in files:
 		if(iterator%100 == 0):
 	   		if(frame is None):
 	   			break
-			average_color = [stats.mode(frame[:, :, i]) for i in range(frame.shape[-1])]
-			average_color = [int(x) for x in average_color]
+			mode_color = [stats.mode(frame[:, :, i]) for i in range(frame.shape[-1])]
+			mode_color = [int(x) for x in mode]
 			writer.append(average_color)
 
 		if cv2.waitKey(1) & 0xFF == ord('q'):
