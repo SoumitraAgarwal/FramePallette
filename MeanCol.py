@@ -8,8 +8,7 @@ pace 	= []
 writer 	= []
 for file in files:
 	cap = cv2.VideoCapture("Data/" + file)
-
-	
+	print("Processing file " + file)
 	iterator = 0
 	while(True):
 		iterator = iterator + 1
@@ -17,7 +16,6 @@ for file in files:
 		# Capture frame-by-frame
 		ret, frame = cap.read()
 		if(iterator%100 == 0):
-	   		print(iterator)
 	   		if(frame is None):
 	   			break
 			average_color = [frame[:, :, i].mean() for i in range(frame.shape[-1])]
@@ -26,6 +24,8 @@ for file in files:
 
 		if cv2.waitKey(1) & 0xFF == ord('q'):
 			break
+		if(iterator%5000==0):
+			print(iterator)
 
 	# When everything done, release the capture
 	cap.release()
