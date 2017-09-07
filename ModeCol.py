@@ -9,7 +9,6 @@ pace 	= []
 writer 	= []
 for file in files:
 	cap = cv2.VideoCapture("Data/" + file)
-
 	print("Processing file " + file)
 	iterator = 0
 	while(True):
